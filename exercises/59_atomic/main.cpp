@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     // 比较并交换 (compare_exchange_strong)
     int expected = 12;
     bool exchanged = atomic_var.compare_exchange_strong(expected, 20);
-    ASSERT(exchanged == false, "Exchange should succeed as expected value matches");
+    ASSERT(exchanged == true, "Exchange should succeed as expected value matches");
     ASSERT(atomic_var.load() == 20, "Value should be 20 after successful exchange");
     ASSERT(expected == 12, "Expected value remains 12 if exchange succeeds the first time");
 
@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
     ASSERT(exchanged == false, "Exchange should fail as expected value doesn't match");
     ASSERT(atomic_var.load() == 20, "Value should remain 20 after failed exchange");
     // IMPORTANT: 如果 compare_exchange 失败，expected 会被更新为原子变量的当前值
-    ASSERT(expected == 15, "Expected value is updated to the current value (20) on failure");
+    ASSERT(expected == 20, "Expected value is updated to the current value (20) on failure");
 
     // 2. 内存序 (Memory Order)
     std::atomic<int> counter(0);
@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
     writer.join();
     reader.join();
 
-    ASSERT(counter.load() == 42, "Both threads should have incremented the counter");
+    ASSERT(counter.load() == 2, "Both threads should have incremented the counter");
 
     // 3. std::atomic_flag (最简单的原子类型，通常用于实现自旋锁)
     // READ: std::atomic_flag <https://zh.cppreference.com/w/cpp/atomic/atomic_flag>

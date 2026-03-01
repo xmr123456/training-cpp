@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
     {
         auto ptr1 = std::make_unique<Resource>("Part 1 Resource");
         ASSERT(ptr1 != nullptr, "ptr1 should own a resource");
-        ASSERT(ptr1->data == "art 1 Resource", "Check resource data");
+        ASSERT(ptr1->data == "Part 1 Resource", "Check resource data");
 
         // TODO: 打开注释并解释为什么这会导致编译错误。
         // auto ptr2 = ptr1;
@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
         // 使用 std::move 转移所有权
         auto ptr3 = std::move(ptr1);
         ASSERT(ptr3 != nullptr, "ptr3 should own the resource now");
-        ASSERT(ptr3->data == "art 1 Resource", "Check resource data in ptr3");
+        ASSERT(ptr3->data == "Part 1 Resource", "Check resource data in ptr3");
 
         // Resource 在 ptr3 超出作用域时自动销毁
     }
@@ -92,7 +92,7 @@ int main(int argc, char **argv) {
         ASSERT(raw_ptr->data == "Part 3 Resource", "Check data via raw_ptr");
 
         // TODO: 请在下方补充代码，确保不会发生内存泄漏。
-        delete ;
+        delete raw_ptr;
     }
 
     // Part 4: unique_ptr with arrays

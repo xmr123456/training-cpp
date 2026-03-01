@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
     std::pair<int, int> p5 = {1, 3};
     std::pair<int, int> p6 = {1, 2};
     ASSERT(p4 < p5, "p4 应小于 p5");
-    ASSERT(p4 = p6, "p4 应等于 p6");
+    ASSERT(p4 == p6, "p4 应等于 p6");
     ASSERT(p5 > p6, "p5 应大于 p6");
     // THINK: std::pair 的比较是如何工作的？
     // HINT：首先比较 first 成员，如果相等，则比较 second 成员。

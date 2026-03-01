@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
     ASSERT(key == 'x', "pair 的第一个元素");
     ASSERT(val == 3.14f, "pair 的第二个元素");
     key = 'y';// 修改引用会影响原始 pair
-    ASSERT(p.first == '?', "修改后 pair 的第一个元素");
+    ASSERT(p.first == 'y', "修改后 pair 的第一个元素");
 
     // 绑定到 std::tuple
     std::tuple<bool, int, std::string> t = {true, 100, "Hello"};

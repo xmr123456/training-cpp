@@ -1,0 +1,9 @@
+{
+    errdata = "\27[01m\27[K15_class_clone/main.cpp:\27[m\27[K In copy constructor ‘\27[01m\27[KDynFibonacci::\27[01;32m\27[KDynFibonacci\27[m\27[K(const DynFibonacci&)\27[m\27[K’:\
+\27[01m\27[K15_class_clone/main.cpp:19:21:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[K‘\27[01m\27[K*this.DynFibonacci::cache\27[m\27[K’ is used uninitialized [\27[01;35m\27[K-Wuninitialized\27[m\27[K]\
+   19 |                 if (\27[01;35m\27[Kcache\27[m\27[K) {\
+      |                     \27[01;35m\27[K^~~~~\27[m\27[K\
+At global scope:\
+\27[01m\27[Kcc1plus:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[Kunrecognized command-line option ‘\27[01m\27[K-Wno-gnu-line-marker\27[m\27[K’ may have been intended to silence earlier diagnostics\
+"
+}

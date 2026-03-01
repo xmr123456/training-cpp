@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
 
     B b;
     int val_from_b = b.access_private_val(a);
-    ASSERT(val_from_b == ?, "Value accessed by friend class B should be 10");
+    ASSERT(val_from_b == 10, "Value accessed by friend class B should be 10");
     std::cout << "Value accessed by friend class B: " << val_from_b << std::endl;
 
     // THINK: 友元关系是单向的吗？ B 是 A 的友元，那么 A 是 B 的友元吗？

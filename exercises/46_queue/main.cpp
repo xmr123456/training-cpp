@@ -47,7 +47,6 @@ public:
 int main(int argc, char **argv) {
     std::queue<std::string> q;
     // TODO：使用自己实现的队列类进行测试
-    MyQueue<std::string> q;
     ASSERT(q.empty(), "queue should be empty initially");
     ASSERT(q.size() == 0, "queue size should be 0 initially");
 
@@ -87,8 +86,8 @@ int main(int argc, char **argv) {
 
     // 继续出队
     q.pop(); // 出队 "!"
-    ASSERT(q.size() == ?, "queue size should be 1 after second pop");
-    ASSERT(q.front() == ?, "front element should be \"C++\"");
+    ASSERT(q.size() == 1, "queue size should be 1 after second pop");
+    ASSERT(q.front() == "C++", "front element should be \"C++\"");
     ASSERT(q.back() == "C++", "back element should be \"C++\"");
 
     //TODO: 出队 "C++"

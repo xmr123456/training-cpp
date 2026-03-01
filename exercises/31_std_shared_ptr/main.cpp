@@ -29,10 +29,10 @@ void TestSharedPtr() {
     std::ignore = std::move(ptrs[0]);
     ptrs[1] = std::move(ptrs[1]);
     ptrs[1] = std::move(ptrs[2]);
-    ASSERT(observer.use_count() == 3, "");
+    ASSERT(observer.use_count() == 2, "");
 
     shared = observer.lock();
-    ASSERT(observer.use_count() == 4, "");
+    ASSERT(observer.use_count() == 3, "");
 
     shared = nullptr;
     for (auto &ptr : ptrs) ptr = nullptr;
@@ -50,33 +50,12 @@ struct A {
     ~A() { std::cout << "A destroyed" << std::endl; }
 };
 struct B {
-    std::shared_ptr<A> ptr;
+    std::weak_ptr<A> ptr;
     ~B() { std::cout << "B destroyed" << std::endl; }
-}
+};
 
 void TestSharedPtrCycle() {
     // TODO： 写一个测试用例，展示 shared_ptr 的循环引用问题
-    // NOTICE：使用 `std::weak_ptr` 可以解决循环引用问题。
-	// 测试1：循环引用 → 析构函数不执行，内存泄漏
-    std::cout << "=== 循环引用测试 ===" << std::endl;
-    {
-        auto a = std::make_shared<A_Cycle>();
-        auto b = std::make_shared<B_Cycle>();
-        a->ptr = b;
-        b->ptr = a;
-        // 离开作用域时，a和b的引用计数都是1，无法释放 → 无析构输出
-    }
-
-    // 测试2：weak_ptr 解决循环引用 → 析构函数正常执行
-    std::cout << "=== weak_ptr 解决循环引用 ===" << std::endl;
-    {
-        auto a = std::make_shared<A_Fix>();
-        auto b = std::make_shared<B_Fix>();
-        a->ptr = b; // weak_ptr 不增加b的引用计数
-        b->ptr = a; // shared_ptr 增加a的引用计数
-        // 离开作用域时：
-        // b的计数-1 → 0 → 释放B_Fix → a的计数-1 → 0 → 释放A_Fix
-    }
 }
 
 template<typename T>
@@ -181,7 +160,7 @@ public:
             *m_ref_count = 0;
         }
     }
-}
+};
 
 int main(int argc, char **argv) {
     TestSharedPtr();
@@ -196,7 +175,7 @@ int main(int argc, char **argv) {
 
     // TODO: 将下列 `?` 替换为正确的值
     ASSERT(ptr.use_count() == 2, "");
-    ASSERT(ptr2.use_count() == 3, "");
+    ASSERT(ptr2.use_count() == 2, "");
     ASSERT(ptr3.use_count() == 0, "");
     return 0;
 }

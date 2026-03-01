@@ -1,0 +1,16 @@
+{
+    errdata = "\27[01m\27[K16_class_move/main.cpp:\27[m\27[K In function ‘\27[01m\27[Kint\27[01;32m\27[K main\27[m\27[K(int, char**)\27[m\27[K’:\
+\27[01m\27[K16_class_move/main.cpp:84:16:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[K‘\27[01m\27[Kvoid*\27[01;32m\27[K memset\27[m\27[K(void*, int, size_t)\27[m\27[K’ clearing an object of type ‘\27[01m\27[Kclass DynFibonacci\27[m\27[K’ with no trivial copy-assignment [\27[01;35m\27[K-Wclass-memaccess\27[m\27[K]\
+   84 |     \27[01;35m\27[Kstd::memset(&fib,0,sizeof(fib))\27[m\27[K;\
+      |     \27[01;35m\27[K~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~\27[m\27[K\
+\27[01m\27[K16_class_move/main.cpp:14:7:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[K‘\27[01m\27[Kclass DynFibonacci\27[m\27[K’ declared here\
+   14 | class \27[01;36m\27[KDynFibonacci\27[m\27[K {\
+      |       \27[01;36m\27[K^~~~~~~~~~~~\27[m\27[K\
+\27[01m\27[K16_class_move/main.cpp:95:10:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kmoving ‘\27[01m\27[Kfib0\27[m\27[K’ of type ‘\27[01m\27[KDynFibonacci\27[m\27[K’ to itself [\27[01;35m\27[K-Wself-move\27[m\27[K]\
+   95 |     \27[01;35m\27[Kfib0 = std::move(fib0)\27[m\27[K;\
+      |     \27[01;35m\27[K~~~~~^~~~~~~~~~~~~~~~~\27[m\27[K\
+\27[01m\27[K16_class_move/main.cpp:95:10:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[Kremove ‘\27[01m\27[Kstd::move\27[m\27[K’ call\
+At global scope:\
+\27[01m\27[Kcc1plus:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[Kunrecognized command-line option ‘\27[01m\27[K-Wno-gnu-line-marker\27[m\27[K’ may have been intended to silence earlier diagnostics\
+"
+}

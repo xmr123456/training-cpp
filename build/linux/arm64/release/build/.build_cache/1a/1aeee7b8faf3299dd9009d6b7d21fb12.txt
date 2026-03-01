@@ -1,0 +1,10 @@
+{
+    errdata = "\27[01m\27[K31_std_shared_ptr/main.cpp:\27[m\27[K In function ‘\27[01m\27[Kvoid\27[01;32m\27[K TestSharedPtr\27[m\27[K()\27[m\27[K’:\
+\27[01m\27[K31_std_shared_ptr/main.cpp:30:13:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kmoving ‘\27[01m\27[Kptrs[1]\27[m\27[K’ of type ‘\27[01m\27[Kstd::shared_ptr<int>\27[m\27[K’ to itself [\27[01;35m\27[K-Wself-move\27[m\27[K]\
+   30 |     \27[01;35m\27[Kptrs[1] = std::move(ptrs[1])\27[m\27[K;\
+      |     \27[01;35m\27[K~~~~~~~~^~~~~~~~~~~~~~~~~~~~\27[m\27[K\
+\27[01m\27[K31_std_shared_ptr/main.cpp:30:13:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[Kremove ‘\27[01m\27[Kstd::move\27[m\27[K’ call\
+At global scope:\
+\27[01m\27[Kcc1plus:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[Kunrecognized command-line option ‘\27[01m\27[K-Wno-gnu-line-marker\27[m\27[K’ may have been intended to silence earlier diagnostics\
+"
+}

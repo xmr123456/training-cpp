@@ -1,5 +1,5 @@
 #include "../exercise.h"
-
+#include <cstring>
 // READ: 左值右值（概念）<https://learn.microsoft.com/zh-cn/cpp/c-language/l-value-and-r-value-expressions?view=msvc-170>
 // READ: 左值右值（细节）<https://zh.cppreference.com/w/cpp/language/value_category>
 // READ: 关于移动语义 <https://learn.microsoft.com/zh-cn/cpp/cpp/rvalue-reference-declarator-amp-amp?view=msvc-170#move-semantics>
@@ -20,7 +20,7 @@ public:
     DynFibonacci(int capacity): cache(new size_t[capacity]), cached(capacity) {}
 
     // TODO: 实现移动构造器
-    DynFibonacci(DynFibonacci &&) noexcept {
+    DynFibonacci(DynFibonacci &&fib) noexcept {
 		cache = fib.cache;
 		cached = fib.cached;
 		
@@ -31,7 +31,7 @@ public:
     // TODO: 实现移动赋值
     // NOTICE: ⚠ 注意移动到自身问题 ⚠
     DynFibonacci &operator=(DynFibonacci &&fib) noexcept {
-		if (*this == fib) {
+		if (this == &fib) {
 			return *this;
 		}
 		
@@ -57,10 +57,19 @@ public:
 
     // TODO: 实现正确的缓存优化斐波那契计算
     size_t operator[](int i) {
-        for (; false; ++cached) {
-            cache[cached] = cache[cached - 1] + cache[cached - 2];
-        }
-        return cache[i];
+	            if (cached > 0) {
+			cache[0] = 0;
+		}
+
+		if (cached > 1) {
+			cache[1] = 1;
+		}
+
+		for (int j = 2; j <= i; j++) {
+			cache[j] = cache[j - 1] + cache[j - 2];
+		}
+		std::cout<<cache[i] << std::endl;
+		return cache[i];
     }
 
     // NOTICE: 不要修改这个方法

@@ -93,7 +93,7 @@ int main(int argc, char **argv) {
     // 测试流插入
     std::stringstream ss;
     ss << v1;
-    ASSERT(ss.str() == "(" + to_string(v1.x) + "," + to_string(v1.y) << ")", "Stream insertion check");
+    ASSERT(ss.str() == "(1,2)", "Stream insertion check");
 
     std::cout << "v1 = " << v1 << std::endl;
     std::cout << "v2 = " << v2 << std::endl;

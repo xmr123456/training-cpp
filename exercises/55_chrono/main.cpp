@@ -2,7 +2,8 @@
 #include <chrono>
 #include <iostream>
 #include <thread>
-
+#include <iomanip>
+#include <ctime>
 // READ: std::chrono <https://zh.cppreference.com/w/cpp/chrono>
 // READ: chrono 的设计哲学 <https://lb3fn675fh.feishu.cn/wiki/HtWswvWLiiXipkkQPCRcuiWjnkg>
 
@@ -32,12 +33,12 @@ int main(int argc, char **argv) {
 
     // 6. duration 运算：加法
     auto total_ms = ms100 + sec3;
-    ASSERT(total_ms.count() == ?, "100 毫秒 + 3 秒 等于多少毫秒？");
+    ASSERT(total_ms.count() == 3100, "100 毫秒 + 3 秒 等于多少毫秒？");
     ASSERT(std::chrono::duration_cast<std::chrono::seconds>(total_ms).count() == 3, "100 毫秒 + 3 秒 大约等于多少秒 (向下取整)？");
 
     // 7. duration 运算：减法
     auto diff_ms = sec3 - ms100;
-    ASSERT(diff_ms.count() == 2700, "3 秒 - 100 毫秒 等于多少毫秒？");
+    ASSERT(diff_ms.count() == 2900, "3 秒 - 100 毫秒 等于多少毫秒？");
 
     // 8. time_point 运算：加上 duration
     auto later = now + sec3;

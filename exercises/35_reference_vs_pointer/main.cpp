@@ -23,8 +23,8 @@ int main(int argc, char **argv) {
     // ref = another_value; // 这不是重新绑定引用，而是给 `value` 赋值
 
     ASSERT(*ptr == 20, "指针现在指向 another_value");
-    ASSERT(value == 20, "引用赋值会改变原变量的值");
-    ASSERT(ref == 20, "引用仍然是 value 的别名，其值已改变");
+    ASSERT(value == 10, "引用赋值会改变原变量的值");
+    ASSERT(ref == 10, "引用仍然是 value 的别名，其值已改变");
 
     // 语法差异
     // 指针使用 * 解引用，使用 & 获取地址

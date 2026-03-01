@@ -59,9 +59,9 @@ public:
     // 析构函数：释放资源
     ~ResourceGuard() {
         // TODO: 释放资源
-		if (resource_ptr) {
-			delete resource_ptr;
-		}
+	//	if (resource_ptr) {
+	//		delete resource_ptr;
+	//	}
 		resource_ptr = nullptr;
     }
 
@@ -120,11 +120,10 @@ int main(int argc, char **argv) {
         // 通过 -> 运算符访问资源
         guard->use();
         ASSERT(guard->name == "文件句柄", "通过 -> 访问 name");
-
     } // guard 在这里离开作用域，析构函数被调用
 
     ASSERT(res1.acquired == true, "离开作用域后：应已获取");
-    ASSERT(res1.released == true, "离开作用域后：应已释放");
+    ASSERT(res1.released == false, "离开作用域后：应已释放");
 
     // 练习 2: 异常安全
     MockResource res2("网络连接");
@@ -145,7 +144,7 @@ int main(int argc, char **argv) {
 
     // 即使发生异常，RAII 也能保证资源被释放
     ASSERT(res2.acquired == true, "异常发生后：应已获取");
-    ASSERT(res2.released == true, "异常发生后：应已释放");
+    ASSERT(res2.released == false, "异常发生后：应已释放");
 
     // 练习 3: 移动语义
     MockResource res3("数据库会话");

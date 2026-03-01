@@ -2,7 +2,7 @@
 #include <any>
 #include <string>
 #include <vector>
-
+#include <utility>  
 // READ: std::any <https://zh.cppreference.com/w/cpp/utility/any>
 
 // TODO: 将下列 `?` 替换为正确的代码
@@ -34,9 +34,10 @@ int main(int argc, char **argv) {
 
     // 使用 emplace 原地构造
     a.emplace<std::pair<int, char>>(5, 'a');
+    auto pair = std::any_cast<std::pair<int, char>>(a);
     ASSERT(a.type() == typeid(std::pair<int,char>), "any 中值的类型应为 std::pair<int, char>");
-    ASSERT(std::any_cast<std::pair<int, char>>(a).first == 5, "pair 的第一个元素应为 5");
-    ASSERT(std::any_cast<std::pair<int, char>>(a).second == 'a', "pair 的第二个元素应为 'a'");
+    ASSERT(pair.first == 5, "pair 的第一个元素应为 5");
+    ASSERT(pair.second == 'a', "pair 的第二个元素应为 'a'");
 
     // 尝试获取错误的类型 (应该抛出异常)
     bool caught = false;

@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
         // 捕获 std::runtime_error 类型的异常
         error_msg = e.what();
     }
-    ASSERT(error_msg == "This is my custom exception!", "捕获到的错误信息应该是什么？");
+    ASSERT(error_msg == "Division by zero", "捕获到的错误信息应该是什么？");
 
     // ---- 练习 2: 捕获 std::out_of_range ----
     std::vector<char> my_vec = {'a', 'b', 'c'};
@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
         out_of_range_msg = e.what();
     }
     ASSERT(element == '\0', "访问失败，element 应该保持初始值");
-    ASSERT(out_of_range_msg == "This is my custom exception!", "捕获到的越界错误信息应该是什么？");
+    ASSERT(out_of_range_msg == "Index out of range", "捕获到的越界错误信息应该是什么？");
 
     // ---- 练习 3: 抛出和捕获自定义异常 ----
     std::string custom_exception_msg;

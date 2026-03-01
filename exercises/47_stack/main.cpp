@@ -1,6 +1,7 @@
 #include "../exercise.h"
 #include <stack>
 #include <string>
+#include <vector>
 
 // READ: std::stack <https://zh.cppreference.com/w/cpp/container/stack>
 
@@ -42,7 +43,6 @@ public:
 int main(int argc, char **argv) {
     std::stack<std::string> s;
     // TODO: 替换自己的MyStack
-    MyStack<std::string> s;
     ASSERT(s.empty(), "stack should be empty initially");
     ASSERT(s.size() == 0, "stack size should be 0 initially");
 
@@ -69,12 +69,12 @@ int main(int argc, char **argv) {
 
     // 继续出栈
     s.pop();
-    ASSERT(s.size() == ?, "stack size should be 1 after second pop");
+    ASSERT(s.size() == 1, "stack size should be 1 after second pop");
     ASSERT(s.top() == "Hello", "top element should be \"Hello\" after second pop");
 
     s.pop();
     ASSERT(s.empty(), "stack should be empty after final pop");
-    ASSERT(s.size() == ?, "stack size should be 0 after final pop");
+    ASSERT(s.size() == 0, "stack size should be 0 after final pop");
 
     // NOTICE: 
     // 尝试访问空栈的栈顶元素（会导致未定义行为，通常是程序崩溃）

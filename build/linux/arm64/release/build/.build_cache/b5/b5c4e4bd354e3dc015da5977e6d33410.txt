@@ -1,0 +1,9 @@
+{
+    errdata = "\27[01m\27[K53_tuple/main.cpp:\27[m\27[K In function ‘\27[01m\27[Kint\27[01;32m\27[K main\27[m\27[K(int, char**)\27[m\27[K’:\
+\27[01m\27[K53_tuple/main.cpp:15:27:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kcomparison with string literal results in unspecified behavior [\27[01;35m\27[K-Waddress\27[m\27[K]\
+   15 |     ASSERT\27[01;35m\27[K(std::get<2>(t1) == \"Hello\27[m\27[K\", \"第三个元素应为 \\\"Hello\\\"\");\
+      |           \27[01;35m\27[K~~~~~~~~~~~~~~~~^~~~~~~~~~\27[m\27[K\
+At global scope:\
+\27[01m\27[Kcc1plus:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[Kunrecognized command-line option ‘\27[01m\27[K-Wno-gnu-line-marker\27[m\27[K’ may have been intended to silence earlier diagnostics\
+"
+}

@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
     ASSERT(pi > 3.14 && pi < 3.15, "从未命名命名空间访问变量");
 
     // 练习 7: 解决名称冲突
-    ASSERT(MyNamespace::value == 10 "显式访问 MyNamespace 的 value");
+    ASSERT(MyNamespace::value == 10, "显式访问 MyNamespace 的 value");
     ASSERT(Conflict::value == 20, "显式访问 Conflict 的 value");
 
     // 练习 8: 将特定成员引入作用域以解决歧义

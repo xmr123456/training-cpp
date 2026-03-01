@@ -1,0 +1,9 @@
+{
+    errdata = "\27[01m\27[K35_reference_vs_pointer/main.cpp:\27[m\27[K In function ‘\27[01m\27[Kint\27[01;32m\27[K main\27[m\27[K(int, char**)\27[m\27[K’:\
+\27[01m\27[K35_reference_vs_pointer/main.cpp:17:10:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kunused variable ‘\27[01m\27[Kref_null\27[m\27[K’ [\27[01;35m\27[K-Wunused-variable\27[m\27[K]\
+   17 |     int &\27[01;35m\27[Kref_null\27[m\27[K = *ptr; // 编译错误：引用不能为空，必须引用一个存在的对象\
+      |          \27[01;35m\27[K^~~~~~~~\27[m\27[K\
+At global scope:\
+\27[01m\27[Kcc1plus:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[Kunrecognized command-line option ‘\27[01m\27[K-Wno-gnu-line-marker\27[m\27[K’ may have been intended to silence earlier diagnostics\
+"
+}

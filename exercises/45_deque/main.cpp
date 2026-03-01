@@ -7,7 +7,7 @@
 
 int main(int argc, char **argv) {
     // TODO: 初始化一个空的 
-	std::deque<int> deq
+	std::deque<int> deq;
     ASSERT(deq.empty(), "deque should be empty initially");
 
     // TODO: 在 deq 前端添加 10

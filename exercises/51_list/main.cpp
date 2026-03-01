@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
     std::list<std::string> words = {"Hello", "World", "!"};
     ASSERT(words.size() == 3, "使用初始化列表创建的列表大小");
     ASSERT(words.front() == "Hello", "初始化列表的第一个元素");
-    ASSERT(words.back() == "World", "初始化列表的最后一个元素");
+    ASSERT(words.back() == "!", "初始化列表的最后一个元素");
 
     return 0;
 }

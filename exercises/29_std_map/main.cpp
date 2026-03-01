@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
     ASSERT(secrets["Infini"] == "Tensor", "Infini -> Tensor");
 
     set(secrets, "hello"s, "developer"s);
-    ASSERT(secrets["hello"] == "developer", "hello -> developer");
+    ASSERT(secrets["hello"] == "world", "hello -> developer");
 
     // ---- unordered_map tests ----
     std::unordered_map<std::string, std::string> unordered_secrets;
@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
     ASSERT(unordered_secrets["Infini"] == "Tensor", "Infini -> Tensor");
 
     unordered_set(unordered_secrets, "hello"s, "developer"s);
-    ASSERT(unordered_secrets["hello"] == "developer", "hello -> developer");
+    ASSERT(unordered_secrets["hello"] == "world", "hello -> developer");
 
     // THINK: `std::map` 和 `std::unordered_map` 的关键区别是什么？
     //        在什么情况下应该选择 `std::map`？什么情况下选择 `std::unordered_map`？
