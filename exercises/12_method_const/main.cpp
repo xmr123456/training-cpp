@@ -5,8 +5,13 @@
 struct Fibonacci {
     int numbers[11];
     // TODO: 修改方法签名和实现，使测试通过
-    constexpr int get(int i) const{
-	    return (i >= 0 && i < 11) ? numbers[i] : -1;
+    constexpr int get(int i) {
+		numbers[0] = 0;
+		numbers[1] = 1;
+		for (int j = 2; j <= i; j++) {
+			numbers[j] = numbers[j - 1] + numbers[j - 2];
+		}
+		return numbers[i];
     }
 };
 

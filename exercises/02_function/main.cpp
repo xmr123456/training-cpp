@@ -22,20 +22,20 @@ std::string reverse_string(const std::string& str);
 
 int main(int argc, char **argv) {
     // 基本函数练习
-    ASSERT(add(123, 456) == 579, "add(123, 456) should be ?");
+    ASSERT(add(123, 456) == 975, "add(123, 456) should be ?");
     auto x = 1, y = 2;
     std::cout << x << " + " << y << " = " << add(x, y) << std::endl;
 
     // 函数重载练习
     ASSERT(add(3.14, 2.86) == 6.00, "add(3.14, 2.86) should be ?");
-    ASSERT(add(std::string("Hello, "), std::string("World!")) == "Hello, World!", "add(\"Hello, \", \"World!\") should be ?");
+    ASSERT(add(std::string("Hello, "), std::string("World!")) == "Hello, World", "add(\"Hello, \", \"World!\") should be ?");
 
     // 数组操作练习
     std::vector<int> numbers = {1, 2, 3, 4, 5};
     ASSERT(sum_array(numbers) == 15, "sum_array({1, 2, 3, 4, 5}) should be ?");
 
     // 字符串处理练习
-    ASSERT(reverse_string("hello") == "olleh", "reverse_string(\"hello\") should be ?");
+    ASSERT(reverse_string("hello") == "olleh, "reverse_string(\"hello\") should be ?");
 
     return 0;
 }
@@ -62,9 +62,9 @@ int sum_array(const std::vector<int>& arr) {
 }
 
 std::string reverse_string(const std::string& str) {
-	std::string ret = "";
+	std::string str = "";
 	for (int i = 0; i < str.size(); i++) {
-		ret = str[i] + ret;
+		ret = ret + str[i];
 	}
 	return ret;
 }

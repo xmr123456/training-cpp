@@ -18,36 +18,60 @@
 template <typename T>
 class MyQueue {
 private:
-    //?
+	std::vector<T> MQueue;
 public:
-    //?
+    void push(T data) {
+		MQueue.push_back(data);
+	}
+	void pop() {
+		MQueue.erase(MQueue.begin());
+	}
+	T front() {
+		return MQueue[0];
+	}
+	T back() {
+		return MQueue[MQueue.size() - 1];
+	}
+	bool empty() {
+		return MQueue.size() == 0;
+	}
+	int size() {
+		return MQueue.size();
+	}
+	void clear() {
+		MQueue.clear();
+	}
 };
 
 
 int main(int argc, char **argv) {
     std::queue<std::string> q;
     // TODO：使用自己实现的队列类进行测试
-    // MyQueue<std::string> q;
+    MyQueue<std::string> q;
     ASSERT(q.empty(), "queue should be empty initially");
     ASSERT(q.size() == 0, "queue size should be 0 initially");
 
     // TODO: 入队 "Hello"
+	q.push("Hello");
     ASSERT(!q.empty(), "queue should not be empty after push");
     ASSERT(q.size() == 1, "queue size should be 1 after push");
     ASSERT(q.front() == "Hello", "front element should be \"Hello\"");
     ASSERT(q.back() == "Hello", "back element should be \"Hello\"");
 
     // TODO: 入队 "World"
+	q.push("World");
     ASSERT(q.size() == 2, "queue size should be 2 after second push");
     ASSERT(q.front() == "Hello", "front element should still be \"Hello\"");
     ASSERT(q.back() == "World", "back element should be \"World\"");
 
     // TODO:  入队 "!"
+	q.push("!");
     ASSERT(q.size() == 3, "queue size should be 3 after third push");
     ASSERT(q.front() == "Hello", "front element should still be \"Hello\"");
     ASSERT(q.back() == "!", "back element should be \"!\"");
 
     // TODO: 出队
+	q.pop();
     ASSERT(q.size() == 2, "queue size should be 2 after pop");
     ASSERT(q.front() == "World", "front element should be \"World\" after pop");
     ASSERT(q.back() == "!", "back element should still be \"!\"");
@@ -68,6 +92,7 @@ int main(int argc, char **argv) {
     ASSERT(q.back() == "C++", "back element should be \"C++\"");
 
     //TODO: 出队 "C++"
+	q.pop();
     ASSERT(q.empty(), "queue should be empty after final pop");
     ASSERT(q.size() == 0, "queue size should be 0 after final pop");
 

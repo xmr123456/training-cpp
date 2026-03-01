@@ -27,31 +27,43 @@ public:
     }
 
     T &top() {
-        
+        return data[data.size() - 1];
     }
+	
+	bool empty() {
+		return data.size() == 0;
+	}
+	
+	int size() {
+		return data.size();
+	}
 };
 
 int main(int argc, char **argv) {
     std::stack<std::string> s;
     // TODO: 替换自己的MyStack
-    // MyStack<std::string> s;
+    MyStack<std::string> s;
     ASSERT(s.empty(), "stack should be empty initially");
     ASSERT(s.size() == 0, "stack size should be 0 initially");
 
     // TODO: 入栈 "Hello"
+	s.push("Hello");
     ASSERT(!s.empty(), "stack should not be empty after push");
     ASSERT(s.size() == 1, "stack size should be 1 after push");
     ASSERT(s.top() == "Hello", "top element should be \"Hello\"");
 
     // TODO: 入栈 "World"
+	s.push("World");
     ASSERT(s.size() == 2, "stack size should be 2 after second push");
     ASSERT(s.top() == "World", "top element should be \"World\"");
 
     // TODO: 入栈 "!"
+	s.push("!");
     ASSERT(s.size() == 3, "stack size should be 3 after third push");
     ASSERT(s.top() == "!", "top element should be \"!\"");
 
     // TODO: 出栈
+	s.pop();
     ASSERT(s.size() == 2, "stack size should be 2 after pop");
     ASSERT(s.top() == "World", "top element should be \"World\" after pop");
 

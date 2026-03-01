@@ -15,6 +15,7 @@ class Fibonacci {
 public:
     // TODO: 实现构造器
     Fibonacci() {
+		memset(cache,0,sizeof(cache));
 		cached = 0;
 	}
 
