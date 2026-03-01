@@ -1,0 +1,12 @@
+{
+    errdata = "23_template_const/main.cpp: In instantiation of ‘\27[01m\27[KTensor<N, T>::\27[01;32m\27[KTensor\27[m\27[K(const unsigned int*) \27[35m\27[K[with unsigned int N = 4; T = int]\27[m\27[K\27[m\27[K’:\
+\27[01m\27[K23_template_const/main.cpp:54:43:\27[m\27[K   required from here\
+\27[01m\27[K23_template_const/main.cpp:15:35:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kcomparison of integer expressions of different signedness: ‘\27[01m\27[Kint\27[m\27[K’ and ‘\27[01m\27[Kunsigned int\27[m\27[K’ [\27[01;35m\27[K-Wsign-compare\27[m\27[K]\
+   15 |                 for (int i = 0; \27[01;35m\27[Ki < N\27[m\27[K; i++) {\
+      |                                 \27[01;35m\27[K~~^~~\27[m\27[K\
+23_template_const/main.cpp: In instantiation of ‘\27[01m\27[KTensor<N, T>::\27[01;32m\27[KTensor\27[m\27[K(const unsigned int*) \27[35m\27[K[with unsigned int N = 3; T = float]\27[m\27[K\27[m\27[K’:\
+\27[01m\27[K23_template_const/main.cpp:68:45:\27[m\27[K   required from here\
+\27[01m\27[K23_template_const/main.cpp:15:35:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kcomparison of integer expressions of different signedness: ‘\27[01m\27[Kint\27[m\27[K’ and ‘\27[01m\27[Kunsigned int\27[m\27[K’ [\27[01;35m\27[K-Wsign-compare\27[m\27[K]\
+\27[01m\27[Kcc1plus:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[Kunrecognized command-line option ‘\27[01m\27[K-Wno-gnu-line-marker\27[m\27[K’ may have been intended to silence earlier diagnostics\
+"
+}

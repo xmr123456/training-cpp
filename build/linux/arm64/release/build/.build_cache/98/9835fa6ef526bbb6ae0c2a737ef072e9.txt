@@ -1,0 +1,13 @@
+{
+    errdata = "\27[01m\27[K02_function/main.cpp:\27[m\27[K In function ‘\27[01m\27[Kint\27[01;32m\27[K sum_array\27[m\27[K(const std::vector<int>&)\27[m\27[K’:\
+\27[01m\27[K02_function/main.cpp:58:27:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kcomparison of integer expressions of different signedness: ‘\27[01m\27[Kint\27[m\27[K’ and ‘\27[01m\27[Kstd::vector<int>::size_type\27[m\27[K’ {aka ‘\27[01m\27[Klong unsigned int\27[m\27[K’} [\27[01;35m\27[K-Wsign-compare\27[m\27[K]\
+   58 |         for (int i = 0; \27[01;35m\27[Ki < arr.size()\27[m\27[K; i++) {\
+      |                         \27[01;35m\27[K~~^~~~~~~~~~~~\27[m\27[K\
+\27[01m\27[K02_function/main.cpp:\27[m\27[K In function ‘\27[01m\27[Kstd::string\27[01;32m\27[K reverse_string\27[m\27[K(const std::string&)\27[m\27[K’:\
+\27[01m\27[K02_function/main.cpp:66:27:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kcomparison of integer expressions of different signedness: ‘\27[01m\27[Kint\27[m\27[K’ and ‘\27[01m\27[Kstd::__cxx11::basic_string<char>::size_type\27[m\27[K’ {aka ‘\27[01m\27[Klong unsigned int\27[m\27[K’} [\27[01;35m\27[K-Wsign-compare\27[m\27[K]\
+   66 |         for (int i = 0; \27[01;35m\27[Ki < str.size()\27[m\27[K; i++) {\
+      |                         \27[01;35m\27[K~~^~~~~~~~~~~~\27[m\27[K\
+At global scope:\
+\27[01m\27[Kcc1plus:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[Kunrecognized command-line option ‘\27[01m\27[K-Wno-gnu-line-marker\27[m\27[K’ may have been intended to silence earlier diagnostics\
+"
+}

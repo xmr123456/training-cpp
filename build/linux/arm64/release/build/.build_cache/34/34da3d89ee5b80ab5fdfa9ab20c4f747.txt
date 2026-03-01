@@ -1,0 +1,33 @@
+{
+    errdata = "\27[01m\27[K03_argument&parameter/main.cpp:\27[m\27[K In function ‘\27[01m\27[Kvoid\27[01;32m\27[K func_by_value\27[m\27[K(int)\27[m\27[K’:\
+\27[01m\27[K03_argument&parameter/main.cpp:58:17:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kself-comparison always evaluates to true [\27[01;35m\27[K-Wtautological-compare\27[m\27[K]\
+   58 |     ASSERT\27[32m\27[K(para\27[m\27[Km\27[01;35m\27[K =\27[m\27[K=\27[34m\27[K para\27[m\27[Km, \"param should be ?\");\
+      |           \27[32m\27[K~~~~~\27[m\27[K \27[01;35m\27[K^~\27[m\27[K \27[34m\27[K~~~~~\27[m\27[K\
+\27[01m\27[K03_argument&parameter/main.cpp:61:17:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kself-comparison always evaluates to true [\27[01;35m\27[K-Wtautological-compare\27[m\27[K]\
+   61 |     ASSERT\27[32m\27[K(para\27[m\27[Km\27[01;35m\27[K =\27[m\27[K=\27[34m\27[K para\27[m\27[Km, \"param should be ?\");\
+      |           \27[32m\27[K~~~~~\27[m\27[K \27[01;35m\27[K^~\27[m\27[K \27[34m\27[K~~~~~\27[m\27[K\
+\27[01m\27[K03_argument&parameter/main.cpp:\27[m\27[K In function ‘\27[01m\27[Kvoid\27[01;32m\27[K func_by_reference\27[m\27[K(int&)\27[m\27[K’:\
+\27[01m\27[K03_argument&parameter/main.cpp:66:17:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kself-comparison always evaluates to true [\27[01;35m\27[K-Wtautological-compare\27[m\27[K]\
+   66 |     ASSERT\27[32m\27[K(para\27[m\27[Km\27[01;35m\27[K =\27[m\27[K=\27[34m\27[K para\27[m\27[Km, \"param should be ?\");\
+      |           \27[32m\27[K~~~~~\27[m\27[K \27[01;35m\27[K^~\27[m\27[K \27[34m\27[K~~~~~\27[m\27[K\
+\27[01m\27[K03_argument&parameter/main.cpp:69:17:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kself-comparison always evaluates to true [\27[01;35m\27[K-Wtautological-compare\27[m\27[K]\
+   69 |     ASSERT\27[32m\27[K(para\27[m\27[Km\27[01;35m\27[K =\27[m\27[K=\27[34m\27[K para\27[m\27[Km, \"param should be ?\");\
+      |           \27[32m\27[K~~~~~\27[m\27[K \27[01;35m\27[K^~\27[m\27[K \27[34m\27[K~~~~~\27[m\27[K\
+\27[01m\27[K03_argument&parameter/main.cpp:\27[m\27[K In function ‘\27[01m\27[Kvoid\27[01;32m\27[K func_by_pointer\27[m\27[K(int*)\27[m\27[K’:\
+\27[01m\27[K03_argument&parameter/main.cpp:74:18:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kself-comparison always evaluates to true [\27[01;35m\27[K-Wtautological-compare\27[m\27[K]\
+   74 |     ASSERT\27[32m\27[K(*para\27[m\27[Km\27[01;35m\27[K =\27[m\27[K=\27[34m\27[K *para\27[m\27[Km, \"*param should be ?\");\
+      |           \27[32m\27[K~~~~~~\27[m\27[K \27[01;35m\27[K^~\27[m\27[K \27[34m\27[K~~~~~~\27[m\27[K\
+\27[01m\27[K03_argument&parameter/main.cpp:77:18:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kself-comparison always evaluates to true [\27[01;35m\27[K-Wtautological-compare\27[m\27[K]\
+   77 |     ASSERT\27[32m\27[K(*para\27[m\27[Km\27[01;35m\27[K =\27[m\27[K=\27[34m\27[K *para\27[m\27[Km, \"*param should be ?\");\
+      |           \27[32m\27[K~~~~~~\27[m\27[K \27[01;35m\27[K^~\27[m\27[K \27[34m\27[K~~~~~~\27[m\27[K\
+\27[01m\27[K03_argument&parameter/main.cpp:\27[m\27[K In function ‘\27[01m\27[Kvoid\27[01;32m\27[K func_by_const_reference\27[m\27[K(const int&)\27[m\27[K’:\
+\27[01m\27[K03_argument&parameter/main.cpp:82:17:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kself-comparison always evaluates to true [\27[01;35m\27[K-Wtautological-compare\27[m\27[K]\
+   82 |     ASSERT\27[32m\27[K(para\27[m\27[Km\27[01;35m\27[K =\27[m\27[K=\27[34m\27[K para\27[m\27[Km, \"param should be ?\");\
+      |           \27[32m\27[K~~~~~\27[m\27[K \27[01;35m\27[K^~\27[m\27[K \27[34m\27[K~~~~~\27[m\27[K\
+\27[01m\27[K03_argument&parameter/main.cpp:86:17:\27[m\27[K \27[01;35m\27[Kwarning: \27[m\27[Kself-comparison always evaluates to true [\27[01;35m\27[K-Wtautological-compare\27[m\27[K]\
+   86 |     ASSERT\27[32m\27[K(para\27[m\27[Km\27[01;35m\27[K =\27[m\27[K=\27[34m\27[K para\27[m\27[Km, \"param should be ?\");\
+      |           \27[32m\27[K~~~~~\27[m\27[K \27[01;35m\27[K^~\27[m\27[K \27[34m\27[K~~~~~\27[m\27[K\
+At global scope:\
+\27[01m\27[Kcc1plus:\27[m\27[K \27[01;36m\27[Knote: \27[m\27[Kunrecognized command-line option ‘\27[01m\27[K-Wno-gnu-line-marker\27[m\27[K’ may have been intended to silence earlier diagnostics\
+"
+}

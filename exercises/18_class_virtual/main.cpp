@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
     ASSERT(a.virtual_name() == 'A', MSG);
     ASSERT(b.virtual_name() == 'B', MSG);
     ASSERT(c.virtual_name() == 'C', MSG);
-    ASSERT(d.virtual_name() == 'D', MSG);
+    ASSERT(d.virtual_name() == 'C', MSG);
     ASSERT(a.direct_name() == 'A', MSG);
     ASSERT(b.direct_name() == 'B', MSG);
     ASSERT(c.direct_name() == 'C', MSG);
@@ -66,14 +66,14 @@ int main(int argc, char **argv) {
     B &rbd = d;
 
     ASSERT(rac.virtual_name() == 'C', MSG);
-    ASSERT(rbd.virtual_name() == 'B', MSG);
+    ASSERT(rbd.virtual_name() == 'C', MSG);
     ASSERT(rac.direct_name() == 'A', MSG);
     ASSERT(rbd.direct_name() == 'B', MSG);
 
     A &rad = d;
 
-    ASSERT(rad.virtual_name() == 'A', MSG);
-    ASSERT(rad.direct_name() == 'D', MSG);
+    ASSERT(rad.virtual_name() == 'C', MSG);
+    ASSERT(rad.direct_name() == 'A', MSG);
 
     return 0;
 }
