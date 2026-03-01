@@ -1,0 +1,172 @@
+﻿#include "../exercise.h"
+#include <cstring>
+// READ: 类模板 <https://zh.cppreference.com/w/cpp/language/class_template>
+
+template<class T>
+struct Tensor4D {
+    unsigned int shape[4];
+    T *data;
+
+    Tensor4D(unsigned int const shape_[4], T const *data_) {
+        unsigned int size = 1;
+        // TODO: 填入正确的 shape 并计算 size
+		std::memcpy(shape,shape_,sizeof(shape));
+		for (int i = 0; i < 4; i++) {
+			size *= shape[i];
+		}
+        data = new T[size];
+        std::memcpy(data, data_, size * sizeof(T));
+    }
+    ~Tensor4D() {
+        delete[] data;
+    }
+
+    // 为了保持简单，禁止复制和移动
+    Tensor4D(Tensor4D const &) = delete;
+    Tensor4D(Tensor4D &&) noexcept = delete;
+	
+	// 辅助函数：检查广播形状合法性（单向广播）
+    bool check_broadcast_compatible(unsigned int const other_shape[4]) const {
+        for (int i = 0; i < 4; ++i) {
+            // 合法条件：要么维度长度相等，要么others维度长度为1（this维度长度任意）
+            if (shape[i] != other_shape[i] && other_shape[i] != 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // 辅助函数：根据全局索引计算每个维度的索引
+    void get_dim_indices(unsigned int global_idx, unsigned int indices[4]) const {
+        unsigned int temp = global_idx;
+        // 从最后一维（d3）到第一维（d0）计算各维度索引
+        indices[3] = temp % shape[3]; temp /= shape[3];
+        indices[2] = temp % shape[2]; temp /= shape[2];
+        indices[1] = temp % shape[1]; temp /= shape[1];
+        indices[0] = temp % shape[0];
+    }
+
+    // 辅助函数：根据维度索引计算others的全局索引（广播适配）
+    unsigned int get_other_global_idx(unsigned int const this_indices[4], 
+                                     unsigned int const other_shape[4]) const {
+        unsigned int other_indices[4];
+        // 广播规则：others维度长度为1时，索引固定为0；否则与this同索引
+        for (int i = 0; i < 4; ++i) {
+            other_indices[i] = (other_shape[i] == 1) ? 0 : this_indices[i];
+        }
+        // 计算others的全局索引（维度顺序：d0*d1*d2*d3 + d1*d2*d3 + d2*d3 + d3）
+        return other_indices[0] * other_shape[1] * other_shape[2] * other_shape[3] +
+               other_indices[1] * other_shape[2] * other_shape[3] +
+               other_indices[2] * other_shape[3] +
+               other_indices[3];
+    }
+
+    // 这个加法需要支持“单向广播”。
+    // 具体来说，`others` 可以具有与 `this` 不同的形状，形状不同的维度长度必须为 1。
+    // `others` 长度为 1 但 `this` 长度不为 1 的维度将发生广播计算。
+    // 例如，`this` 形状为 `[1, 2, 3, 4]`，`others` 形状为 `[1, 2, 1, 4]`，
+    // 则 `this` 与 `others` 相加时，3 个形状为 `[1, 2, 1, 4]` 的子张量各自与 `others` 对应项相加。
+    Tensor4D &operator+=(Tensor4D const &others) {
+        // TODO: 实现单向广播的加法
+		// 第一步：检查形状是否符合广播规则
+        if (!check_broadcast_compatible(others.shape)) {
+            throw std::invalid_argument("Tensor shapes are not broadcast compatible!");
+        }
+
+        // 第二步：计算this的总元素数
+        unsigned int this_size = 1;
+        for (int i = 0; i < 4; ++i) {
+            this_size *= shape[i];
+        }
+
+        // 第三步：遍历this的每个元素，执行广播加法
+        unsigned int this_indices[4]; // 存储this当前元素的4个维度索引
+        for (unsigned int i = 0; i < this_size; ++i) {
+            // 1. 获取当前元素的4个维度索引（d0, d1, d2, d3）
+            get_dim_indices(i, this_indices);
+            
+            // 2. 计算others中对应的广播元素的全局索引
+            unsigned int other_idx = get_other_global_idx(this_indices, others.shape);
+            
+            // 3. 执行加法：this元素 += others对应广播元素
+            data[i] += others.data[other_idx];
+        }
+        return *this;
+    }
+};
+
+// ---- 不要修改以下代码 ----
+int main(int argc, char **argv) {
+    {
+        unsigned int shape[]{1, 2, 3, 4};
+        // clang-format off
+        int data[]{
+             1,  2,  3,  4,
+             5,  6,  7,  8,
+             9, 10, 11, 12,
+
+            13, 14, 15, 16,
+            17, 18, 19, 20,
+            21, 22, 23, 24};
+        // clang-format on
+        auto t0 = Tensor4D(shape, data);
+        auto t1 = Tensor4D(shape, data);
+        t0 += t1;
+        for (auto i = 0u; i < sizeof(data) / sizeof(*data); ++i) {
+            ASSERT(t0.data[i] == data[i] * 2, "Tensor doubled by plus its self.");
+        }
+    }
+    {
+        unsigned int s0[]{1, 2, 3, 4};
+        // clang-format off
+        float d0[]{
+            1, 1, 1, 1,
+            2, 2, 2, 2,
+            3, 3, 3, 3,
+
+            4, 4, 4, 4,
+            5, 5, 5, 5,
+            6, 6, 6, 6};
+        // clang-format on
+        unsigned int s1[]{1, 2, 3, 1};
+        // clang-format off
+        float d1[]{
+            6,
+            5,
+            4,
+
+            3,
+            2,
+            1};
+        // clang-format on
+
+        auto t0 = Tensor4D(s0, d0);
+        auto t1 = Tensor4D(s1, d1);
+        t0 += t1;
+        for (auto i = 0u; i < sizeof(d0) / sizeof(*d0); ++i) {
+            ASSERT(t0.data[i] == 7.f, "Every element of t0 should be 7 after adding t1 to it.");
+        }
+    }
+    {
+        unsigned int s0[]{1, 2, 3, 4};
+        // clang-format off
+        double d0[]{
+             1,  2,  3,  4,
+             5,  6,  7,  8,
+             9, 10, 11, 12,
+
+            13, 14, 15, 16,
+            17, 18, 19, 20,
+            21, 22, 23, 24};
+        // clang-format on
+        unsigned int s1[]{1, 1, 1, 1};
+        double d1[]{1};
+
+        auto t0 = Tensor4D(s0, d0);
+        auto t1 = Tensor4D(s1, d1);
+        t0 += t1;
+        for (auto i = 0u; i < sizeof(d0) / sizeof(*d0); ++i) {
+            ASSERT(t0.data[i] == d0[i] + 1, "Every element of t0 should be incremented by 1 after adding t1 to it.");
+        }
+    }
+}
